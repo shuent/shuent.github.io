@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags &middot; Shuent</title>
+    <title>Auto deploy Test &middot; Shuent</title>
 
-    <meta name="description" content="blog">
+    <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="Tags &middot; Shuent">
-    <meta name="twitter:description" content="blog">
+    <meta name="twitter:title" content="Auto deploy Test &middot; Shuent">
+    <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Tags &middot; Shuent">
-    <meta property="og:description" content="blog">
+    <meta property="og:title" content="Auto deploy Test &middot; Shuent">
+    <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
@@ -70,27 +70,66 @@
         <div>
             
             <div class="posts">
-                
-                <h1 class="content-subhead">30 May 2018, 20:59</h1>
+                <h1 class="content-subhead">30 May 2018, 19:18</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/tags/%E9%81%8E%E5%8E%BB%E5%95%8F/" class="post-title">過去問</a>
+                        <a href="https://shuent.github.io/posts/autodeploy-test/" class="post-title">Auto deploy Test</a>
 
                         <p class="post-meta">
                             
                             
                         </p>
                     </header>
-
-                    <div class="post-description">
-                        
+                    
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            
+                            
+                            
+                            
+                        </div>
                     </div>
-                </section>
-                
-            </div>
-            
+                    
+                    <div class="post-description">
+                        <p>Shファイルを使ってデプロイスクリプトを使う。</p>
 
+<pre><code class="language-sh">#!/bin/bash
+
+echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+
+# Build the project.
+hugo # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+
+# Go To Public folder
+cd public
+# Add changes to git.
+git add .
+
+# Commit changes.
+msg=&quot;rebuilding site `date`&quot;
+if [ $# -eq 1 ]
+  then msg=&quot;$1&quot;
+fi
+git commit -m &quot;$msg&quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back up to the Project Root
+cd ..
+</code></pre>
+
+<p>Hugoのページからいただき。
+<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">https://gohugo.io/hosting-and-deployment/hosting-on-github/</a></p>
+
+<p>あとは非公開のページをbitbucketにいれるだけ</p>
+
+                    </div>
+                    
+                </section>
+            </div>
             <div class="footer">
     <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
@@ -103,6 +142,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
