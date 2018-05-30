@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shuent&#39;s Blog</title>
+    <title>Shuent</title>
     <link>https://shuent.github.io/</link>
-    <description>Recent content on Shuent&#39;s Blog</description>
+    <description>Recent content on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 30 May 2018 20:59:58 +0900</lastBuildDate>
