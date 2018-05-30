@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shuent</title>
+    <link>shuent.github.io/</link>
+    <description>Recent content on Shuent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Wed, 30 May 2018 17:06:07 +0900</lastBuildDate>
+    
+	<atom:link href="shuent.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>日本語のファイル名でもかけるんだ</title>
+      <link>shuent.github.io/posts/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
+      <pubDate>Wed, 30 May 2018 17:06:07 +0900</pubDate>
+      
+      <guid>shuent.github.io/posts/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
+      <description>へえ</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>shuent.github.io/posts/test/</link>
+      <pubDate>Wed, 30 May 2018 17:00:50 +0900</pubDate>
+      
+      <guid>shuent.github.io/posts/test/</guid>
+      <description>記念すべき初テスト
+#include &amp;lt;iostream&amp;gt; cout &amp;lt;&amp;lt; &amp;quot;hello World&amp;quot; &amp;lt;&amp;lt;endl;  </description>
+    </item>
+    
+  </channel>
+</rss>
