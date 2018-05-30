@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>筑波院試情報システムCS　27年度8月 情報1　解答</title>
+      <title>筑波院試情報システムCSの問題（27年度8月 情報1）を解いてみた。</title>
       <link>https://shuent.github.io/posts/tsukuba27-8/</link>
       <pubDate>Wed, 30 May 2018 20:59:58 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/tsukuba27-8/</guid>
-      <description>問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
+      <description>解説します。 問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
 二分木の問題。
 (4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は 2^(n+1)-1 回。指数がn+1になるのは、null checkを一番最下層のノードに対して行うから。未確認。
 (5) ノードの左を子、右を兄弟とした新しいデータ構造に対して、足し合わせの関数を作成する。
