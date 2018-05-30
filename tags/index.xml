@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Shuent</title>
+    <title>Tags on Shuent&#39;s Blog</title>
     <link>https://shuent.github.io/tags/</link>
-    <description>Recent content in Tags on Shuent</description>
+    <description>Recent content in Tags on Shuent&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>jp</language>
+    <language>en-us</language>
     
 	<atom:link href="https://shuent.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>過去問</title>
-      <link>https://shuent.github.io/tags/%E9%81%8E%E5%8E%BB%E5%95%8F/</link>
-      <pubDate>Wed, 30 May 2018 20:59:58 +0900</pubDate>
-      
-      <guid>https://shuent.github.io/tags/%E9%81%8E%E5%8E%BB%E5%95%8F/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

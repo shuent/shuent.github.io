@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Shuent&#39;s Blog</title>
-    <link>https://shuent.github.io/posts/</link>
-    <description>Recent content in Posts on Shuent&#39;s Blog</description>
+    <title>Code on Shuent&#39;s Blog</title>
+    <link>https://shuent.github.io/categories/code/</link>
+    <description>Recent content in Code on Shuent&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 30 May 2018 20:59:58 +0900</lastBuildDate>
     
-	<atom:link href="https://shuent.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shuent.github.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,16 +23,6 @@
 (5) ノードの左を子、右を兄弟とした新しいデータ構造に対して、足し合わせの関数を作成する。
 int sumup_tree2(Node *p){ if(p == NULL) return 0; p-&amp;gt;data += sumup_tree2(p-&amp;gt;left); return p-&amp;gt;data + sumup_tree2(p-&amp;gt;right); }  確かめてみる。再帰で呼ばれるたびに木をprintしていく。木の階層ごとにprintするには多少工夫がいる。確認の全コードはこちら。C++だけどCと基本は変わらない。
 #include &amp;lt;iostream&amp;gt; #include &amp;lt;stdlib.h&amp;gt; using namespace std; struct Node{ int data; Node *left; Node *right; }; Node *root = NULL; Node *make_node(int data, Node *left, Node *right){ Node *p = (Node *)malloc(sizeof *p); p-&amp;gt;data = data; p-&amp;gt;left = left; p-&amp;gt;right = right; return p; } void build_tree(){ Node *p1,*p2,*p3,*p4,*p5; p5 = make_node(5,NULL,NULL); p4 = make_node(4,NULL,NULL); p3 = make_node(3,NULL,p4); p2 = make_node(2,p3,p5); p1 = make_node(1,p2,NULL); root = p1; } void print(Node *p){ Node *rank = p; while (p!</description>
-    </item>
-    
-    <item>
-      <title>Auto deploy script</title>
-      <link>https://shuent.github.io/posts/autodeploy-test/</link>
-      <pubDate>Wed, 30 May 2018 19:18:26 +0900</pubDate>
-      
-      <guid>https://shuent.github.io/posts/autodeploy-test/</guid>
-      <description>githubへhugoで作ったブログをデプロイするシェルスクリプト。公開レポジトリのみgithubへ。
-#!/bin/bash echo -e &amp;quot;\033[0;32mDeploying updates to GitHub...\033[0m&amp;quot; # Build the project. hugo # if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;` # Go To Public folder cd public # Add changes to git. git add . # Commit changes. msg=&amp;quot;rebuilding site `date`&amp;quot; if [ $# -eq 1 ] then msg=&amp;quot;$1&amp;quot; fi git commit -m &amp;quot;$msg&amp;quot; # Push source and build repos. git push origin master # Come Back up to the Project Root cd .</description>
     </item>
     
   </channel>

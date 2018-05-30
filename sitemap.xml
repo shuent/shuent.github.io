@@ -18,6 +18,12 @@
   </url>
   
   <url>
+    <loc>https://shuent.github.io/categories/code/</loc>
+    <lastmod>2018-05-30T20:59:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://shuent.github.io/posts/</loc>
     <lastmod>2018-05-30T20:59:58+09:00</lastmod>
     <priority>0</priority>
@@ -31,12 +37,6 @@
   
   <url>
     <loc>https://shuent.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shuent.github.io/tags/%E9%81%8E%E5%8E%BB%E5%95%8F/</loc>
-    <lastmod>2018-05-30T20:59:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
