@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 01:22:48 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 31 May 2018 03:10:48 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo, github.io, bitbucketの組み合わせがやばい！</title>
+      <link>https://shuent.github.io/posts/hugo-github-io/</link>
+      <pubDate>Thu, 31 May 2018 03:10:48 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/hugo-github-io/</guid>
+      <description>このやばさを３つにまとめると、 無料 簡単 プライベートで中身をホスティング！ コードをブログに書くにあたって、マークダウンでほいほい書けるブログサ</description>
+    </item>
     
     <item>
       <title>筑波情シス院試CS 28年2月　過去問</title>
