@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories &middot; Shuent</title>
+    <title>筑波情シス院試CS 28年2月　過去問 &middot; Shuent</title>
 
-    <meta name="description" content="log">
+    <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="Categories &middot; Shuent">
-    <meta name="twitter:description" content="log">
+    <meta name="twitter:title" content="筑波情シス院試CS 28年2月　過去問 &middot; Shuent">
+    <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Categories &middot; Shuent">
-    <meta property="og:description" content="log">
+    <meta property="og:title" content="筑波情シス院試CS 28年2月　過去問 &middot; Shuent">
+    <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
@@ -70,27 +70,59 @@
         <div>
             
             <div class="posts">
-                
                 <h1 class="content-subhead">31 May 2018, 01:22</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/categories/code/" class="post-title">Code</a>
+                        <a href="https://shuent.github.io/posts/tsukuba28-2/" class="post-title">筑波情シス院試CS 28年2月　過去問</a>
 
                         <p class="post-meta">
                             
                             
+                                under 
+                                
+                                <a class="post-category post-category-code" href="https://shuent.github.io/categories/code">code</a>
+                            
                         </p>
                     </header>
-
+                    
                     <div class="post-description">
                         
-                    </div>
-                </section>
-                
-            </div>
-            
 
+<p>またまた二分探索木の問題。情報の問題１。
+<a href="http://www.cs.tsukuba.ac.jp/admission/past-exam.html">http://www.cs.tsukuba.ac.jp/admission/past-exam.html</a></p>
+
+<h3 id="解答">解答</h3>
+
+<ol>
+<li>d &mdash;- 進み続ける。無限ループ。</li>
+<li>node != EMPTY &mdash;- ここでのEMPTY.value は番兵。番兵を最後において、find_node の無限ループを止めている。</li>
+<li>a, 4. b &mdash;- 二部探索木の計算量は<code>O(log n) ~ O(n)</code></li>
+</ol>
+
+<p>5 は穴埋めでコード完成。すでにvalueが存在するときはそのままリターン。ここで注意しなきゃいけないのが、関数の型も、引数のtree もポインタ型ではないということ。普段ポインタで慣れている人ほど引っ掛かりそう。</p>
+
+<pre><code class="language-cpp">tree insert(tree t,int v){
+    if (t==&amp;empty){
+        tree node = malloc()
+        node-&gt;val = v
+        node-&gt;left = node-&gt;right = &amp;empty
+        return node
+    }
+    // ここからが答え
+    if(v &lt; t-&gt;value){
+        &amp;t-&gt;left = insert(&amp;t-&gt;left, v); // leftがemptyにたどり着くまで再帰。たどり着いた先で上のコードで新しく挿入される。
+    }else if (v &gt; t-&gt;value){
+        &amp;t-&gt;right = &amp;insert(&amp;t-&gt;right, v);    
+    }
+    return t // すでに存在するとき
+}
+</code></pre>
+
+                    </div>
+                    
+                </section>
+            </div>
             <div class="footer">
     <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
@@ -103,6 +135,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 May 2018 20:59:58 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 31 May 2018 01:22:48 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>筑波情シス院試CS 28年2月　過去問</title>
+      <link>https://shuent.github.io/posts/tsukuba28-2/</link>
+      <pubDate>Thu, 31 May 2018 01:22:48 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/tsukuba28-2/</guid>
+      <description> またまた二分探索木の問題。情報の問題１。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
+解答  d &amp;mdash;- 進み続ける。無限ループ。 node != EMPTY &amp;mdash;- ここでのEMPTY.value は番兵。番兵を最後において、find_node の無限ループを止めている。 a, 4. b &amp;mdash;- 二部探索木の計算量はO(log n) ~ O(n)  5 は穴埋めでコード完成。すでにvalueが存在するときはそのままリターン。ここで注意しなきゃいけないのが、関数の型も、引数のtree もポインタ型ではないということ。普段ポインタで慣れている人ほど引っ掛かりそう。
+tree insert(tree t,int v){ if (t==&amp;amp;empty){ tree node = malloc() node-&amp;gt;val = v node-&amp;gt;left = node-&amp;gt;right = &amp;amp;empty return node } // ここからが答え if(v &amp;lt; t-&amp;gt;value){ &amp;amp;t-&amp;gt;left = insert(&amp;amp;t-&amp;gt;left, v); // leftがemptyにたどり着くまで再帰。たどり着いた先で上のコードで新しく挿入される。 }else if (v &amp;gt; t-&amp;gt;value){ &amp;amp;t-&amp;gt;right = &amp;amp;insert(&amp;amp;t-&amp;gt;right, v); } return t // すでに存在するとき }  </description>
+    </item>
     
     <item>
       <title>筑波院試情報システムCSの問題（27年度8月 情報1）を解いてみた。</title>
