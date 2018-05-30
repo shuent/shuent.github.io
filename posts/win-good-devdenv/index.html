@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindowsでもMac並みの開発環境を整えられる &middot; Shuent</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.41" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="WindowsでもMac並みの開発環境を整えられる &middot; Shuent">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="WindowsでもMac並みの開発環境を整えられる &middot; Shuent">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+
+    <link rel="stylesheet" href="https://shuent.github.io/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Shuent" href="https://shuent.github.io/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="https://shuent.github.io">Shuent</a></h1>
+            <h2 class="brand-tagline"> 間違いがあったらリプください </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/shunta3u">
+                        <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/shuent">
+                        <i class="fa fa-github-alt"></i> Github
+                    </a>
+                </li>
+                
+                
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">31 May 2018, 03:46</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://shuent.github.io/posts/win-good-devdenv/" class="post-title">WindowsでもMac並みの開発環境を整えられる</a>
+
+                        <p class="post-meta">
+                            
+                            
+                        </p>
+                    </header>
+                    
+                    <div class="post-description">
+                        
+
+<p>高校生になって初めて買ってもらったときから、ずっとMacだった。ずっとWindowsなんてくそだと思ってた。Windowsを使っているやつらを鼻で笑ってきた。愚かだった。はじめて、君に触れて、ちゃんと向き合った。君は綺麗だった。</p>
+
+<p>なんて冒頭から始まる今日のスタイル。最近Macが不調なので前偶然もらったLenovoを使ってる。</p>
+
+<p>Windowsでも開発がしたい。それもMacと同じUnixシステムの上で、やりたい。Winのコマンド叩きたくない、覚えたくない。そんな人に向けたHowto. 詳しくはぐぐってくれ</p>
+
+<h3 id="how-to">How to</h3>
+
+<p>Windows Subsystem for Linux (WSL)をインストール. これでbashがlinux上で使える.つかこれがなければ話にならん。何となくdevianを選んだ。</p>
+
+<h4 id="linuxbrew">Linuxbrew</h4>
+
+<p>apt-getでいろいろいれる。gitとかrubyとか。これでrailsも使えるし、それぞれの言語もインストールできそうだし、まあOk。</p>
+
+<p>いやちょっと待って。Homebrewだ。俺にとってMacの使いやすさはHomebrewによるものが大きかった。これなしにライブラリの管理などできない。</p>
+
+<p>apt-getだとバージョン古いしsudoしなきゃだし、ごちゃごちゃになるのが目に見えていた。そしてLinuxでも簡単に使えるパッケージマネージャがないか調べた。</p>
+
+<p>あった。<a href="http://linuxbrew.sh/">Linuxbrew</a></p>
+
+<p>便利！！！サイトに沿ってインストールするだけ。なんでもある！Macで使ってたようにパッケージをインストールできる！あら便利。あとはもうルンルン気分で開発。</p>
+
+<h4 id="visual-studio-code">Visual Studio Code</h4>
+
+<p>Visual Studio入れようと思ったんだけど、どうにもIDEはよくわからない。重いし。コンパイル機能つきらしい。よくわからないものには手を出さない主義なので、ミニマムにいく。</p>
+
+<p>MacはAtom使ってたけど今回は<a href="https://code.visualstudio.com/">VSCode</a>. ちなみにこれはVSと違い、エディタという位置づけ。カスタムして必要なものだけ入れられる。こっちが好き。補完機能ももちろん、ターミナルも中で扱えるから便利。</p>
+
+<p>C言語のパス通すのがめんどくさかった。WSL特有のめんどくささらしい。</p>
+
+<h4 id="conemu">Conemu</h4>
+
+<p>コマンドプロンプトがなぜかコピぺ使えなかったので、別のターミナルを探す。<a href="https://conemu.github.io/">ConEmu</a> ってのは人気でらしいので使ってる。そんなわからん。</p>
+
+<h4 id="github">Github</h4>
+
+<p>あとBitbucketもだけど、bash にログインしたとき、sshをいちいち接続しなければいけない。Macは一回接続したら保存してんのにね。bash_profileにいろいろ書かなきゃいけない。けど、手作業でやるってのは、仕組みが分かっていいことだと気づいた。一回書けば済むし。</p>
+
+<hr />
+
+<p>こんな感じで、いじってみると意外とMacと同じには揃ったのでOk.ぜひぜひLinuxbrewはとくにおすすめなので使ってみてね。では。</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="https://gohugo.io/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://shuent.github.io/js/all.min.js"></script>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
