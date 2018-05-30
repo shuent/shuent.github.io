@@ -26,32 +26,13 @@ int sumup_tree2(Node *p){ if(p == NULL) return 0; p-&amp;gt;data += sumup_tree2(
     </item>
     
     <item>
-      <title>Auto deploy Test</title>
+      <title>Auto deploy script</title>
       <link>https://shuent.github.io/posts/autodeploy-test/</link>
       <pubDate>Wed, 30 May 2018 19:18:26 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/autodeploy-test/</guid>
-      <description>Shファイルを使ってデプロイスクリプトを使う。
+      <description>githubへhugoで作ったブログをデプロイするシェルスクリプト。公開レポジトリのみgithubへ。
 #!/bin/bash echo -e &amp;quot;\033[0;32mDeploying updates to GitHub...\033[0m&amp;quot; # Build the project. hugo # if using a theme, replace with `hugo -t &amp;lt;YOURTHEME&amp;gt;` # Go To Public folder cd public # Add changes to git. git add . # Commit changes. msg=&amp;quot;rebuilding site `date`&amp;quot; if [ $# -eq 1 ] then msg=&amp;quot;$1&amp;quot; fi git commit -m &amp;quot;$msg&amp;quot; # Push source and build repos. git push origin master # Come Back up to the Project Root cd .</description>
-    </item>
-    
-    <item>
-      <title>日本語のファイル名でもかけるんだ</title>
-      <link>https://shuent.github.io/posts/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
-      <pubDate>Wed, 30 May 2018 17:06:07 +0900</pubDate>
-      
-      <guid>https://shuent.github.io/posts/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
-      <description>へえ</description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://shuent.github.io/posts/test/</link>
-      <pubDate>Wed, 30 May 2018 17:00:50 +0900</pubDate>
-      
-      <guid>https://shuent.github.io/posts/test/</guid>
-      <description>記念すべき初テスト
-#include &amp;lt;iostream&amp;gt; cout &amp;lt;&amp;lt; &amp;quot;hello World&amp;quot; &amp;lt;&amp;lt;endl;  </description>
     </item>
     
   </channel>
