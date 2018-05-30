@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>筑波院試情報システムCS　27年度2月　解答</title>
+      <title>筑波院試情報システムCS　27年度8月 情報1　解答</title>
       <link>https://shuent.github.io/posts/tsukuba27-8/</link>
       <pubDate>Wed, 30 May 2018 20:59:58 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/tsukuba27-8/</guid>
       <description>問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
-問題 I 二分木の問題。
+二分木の問題。
 (4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は 2^(n+1)-1 回。指数がn+1になるのは、null checkを一番最下層のノードに対して行うから。未確認。
 (5) ノードの左を子、右を兄弟とした新しいデータ構造に対して、足し合わせの関数を作成する。
 int sumup_tree2(Node *p){ if(p == NULL) return 0; p-&amp;gt;data += sumup_tree2(p-&amp;gt;left); return p-&amp;gt;data + sumup_tree2(p-&amp;gt;right); }  確かめてみる。再帰で呼ばれるたびに木をprintしていく。木の階層ごとにprintするには多少工夫がいる。確認の全コードはこちら。C++だけどCと基本は変わらない。
