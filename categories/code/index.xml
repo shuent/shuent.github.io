@@ -17,9 +17,7 @@
       <pubDate>Thu, 31 May 2018 01:22:48 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/tsukuba28-2/</guid>
-      <description> またまた二分探索木の問題。情報の問題１。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
-解答  d &amp;mdash;- 進み続ける。無限ループ。 node != EMPTY &amp;mdash;- ここでのEMPTY.value は番兵。番兵を最後において、find_node の無限ループを止めている。 a, 4. b &amp;mdash;- 二部探索木の計算量はO(log n) ~ O(n)  5 は穴埋めでコード完成。すでにvalueが存在するときはそのままリターン。ここで注意しなきゃいけないのが、関数の型も、引数のtree もポインタ型ではないということ。普段ポインタで慣れている人ほど引っ掛かりそう。
-tree insert(tree t,int v){ if (t==&amp;amp;empty){ tree node = malloc() node-&amp;gt;val = v node-&amp;gt;left = node-&amp;gt;right = &amp;amp;empty return node } // ここからが答え if(v &amp;lt; t-&amp;gt;value){ &amp;amp;t-&amp;gt;left = insert(&amp;amp;t-&amp;gt;left, v); // leftがemptyにたどり着くまで再帰。たどり着いた先で上のコードで新しく挿入される。 }else if (v &amp;gt; t-&amp;gt;value){ &amp;amp;t-&amp;gt;right = &amp;amp;insert(&amp;amp;t-&amp;gt;right, v); } return t // すでに存在するとき }  </description>
+      <description>またまた二分探索木の問題。情報の問題１。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html 解答 d &amp;mdash;- 進み続ける。無限ループ。 node != EMPTY &amp;mdash;- ここでのEMPTY.value は番兵。番兵を最後において、</description>
     </item>
     
     <item>
@@ -28,12 +26,7 @@ tree insert(tree t,int v){ if (t==&amp;amp;empty){ tree node = malloc() node-&am
       <pubDate>Wed, 30 May 2018 20:59:58 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/tsukuba27-8/</guid>
-      <description>解説します。 問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html
-二分木の問題。
-(4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は 2^(n+1)-1 回。指数がn+1になるのは、null checkを一番最下層のノードに対して行うから。未確認。
-(5) ノードの左を子、右を兄弟とした新しいデータ構造に対して、足し合わせの関数を作成する。
-int sumup_tree2(Node *p){ if(p == NULL) return 0; p-&amp;gt;data += sumup_tree2(p-&amp;gt;left); return p-&amp;gt;data + sumup_tree2(p-&amp;gt;right); }  確かめてみる。再帰で呼ばれるたびに木をprintしていく。木の階層ごとにprintするには多少工夫がいる。確認の全コードはこちら。C++だけどCと基本は変わらない。
-#include &amp;lt;iostream&amp;gt; #include &amp;lt;stdlib.h&amp;gt; using namespace std; struct Node{ int data; Node *left; Node *right; }; Node *root = NULL; Node *make_node(int data, Node *left, Node *right){ Node *p = (Node *)malloc(sizeof *p); p-&amp;gt;data = data; p-&amp;gt;left = left; p-&amp;gt;right = right; return p; } void build_tree(){ Node *p1,*p2,*p3,*p4,*p5; p5 = make_node(5,NULL,NULL); p4 = make_node(4,NULL,NULL); p3 = make_node(3,NULL,p4); p2 = make_node(2,p3,p5); p1 = make_node(1,p2,NULL); root = p1; } void print(Node *p){ Node *rank = p; while (p!</description>
+      <description>解説します。 問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html 二分木の問題。 (4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は 2^(n+1)-1 回。指数がn+1になるのは、nu</description>
     </item>
     
   </channel>
