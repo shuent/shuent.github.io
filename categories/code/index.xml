@@ -6,10 +6,19 @@
     <description>Recent content in Code on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 01:22:48 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 31 May 2018 15:02:32 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>筑波院試情報システムCS 28年度８月 解答</title>
+      <link>https://shuent.github.io/posts/tsukuba28-8/</link>
+      <pubDate>Thu, 31 May 2018 15:02:32 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/tsukuba28-8/</guid>
+      <description>情報 問題１を解説します。 マージソートの問題。関数の呼び出し回数を数える問題が苦戦しました。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html Solutions (1) 0と1交互に出す。i=0から始まる。i = (i+1) %</description>
+    </item>
     
     <item>
       <title>筑波情シス院試CS 28年2月　過去問</title>

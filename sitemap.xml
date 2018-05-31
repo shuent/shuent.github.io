@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://shuent.github.io/posts/tsukuba28-8/</loc>
+    <lastmod>2018-05-31T15:02:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shuent.github.io/posts/win-good-devdenv/</loc>
     <lastmod>2018-05-31T03:46:27+09:00</lastmod>
   </url>
@@ -34,19 +39,19 @@
   
   <url>
     <loc>https://shuent.github.io/categories/code/</loc>
-    <lastmod>2018-05-31T01:22:48+09:00</lastmod>
+    <lastmod>2018-05-31T15:02:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shuent.github.io/posts/</loc>
-    <lastmod>2018-05-31T03:46:27+09:00</lastmod>
+    <lastmod>2018-05-31T15:02:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shuent.github.io/</loc>
-    <lastmod>2018-05-31T03:46:27+09:00</lastmod>
+    <lastmod>2018-05-31T15:02:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
