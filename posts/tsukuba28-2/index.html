@@ -30,7 +30,7 @@
         MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
     </script>
     <script type="text/javascript"
-            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML">
     </script>
     <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
 </head>
@@ -100,7 +100,7 @@
 <ol>
 <li>d &mdash;- 進み続ける。無限ループ。</li>
 <li>node != EMPTY &mdash;- ここでのEMPTY.value は番兵。番兵を最後において、find_node の無限ループを止めている。</li>
-<li>a, 4. b &mdash;- 二部探索木の計算量は<code>O(log n) ~ O(n)</code></li>
+<li>a, 4. b &mdash;- 二部探索木の計算量は $ O(\log n) \sim O(n) $</li>
 </ol>
 
 <p>5 は穴埋めでコード完成。すでにvalueが存在するときはそのままリターン。ここで注意しなきゃいけないのが、関数の型も、引数のtree もポインタ型ではないということ。普段ポインタで慣れている人ほど引っ掛かりそう。</p>
