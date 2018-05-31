@@ -44,7 +44,7 @@
       <pubDate>Wed, 30 May 2018 20:59:58 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/tsukuba27-8/</guid>
-      <description>解説します。 問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html 二分木の問題。 (4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は 2^(n+1)-1 回。指数がn+1になるのは、nu</description>
+      <description>解説します。 問題はこちら。 http://www.cs.tsukuba.ac.jp/admission/past-exam.html 二分木の問題。 (4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は $ 2^{n+1}-1 $ 回。指数が $n+1$ になるのは、nu</description>
     </item>
     
     <item>

@@ -25,6 +25,14 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="alternate" type="application/rss+xml" title="Shuent" href="https://shuent.github.io/index.xml" />
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
 </head>
 <body>
 
@@ -88,7 +96,7 @@
 
 <p>二分木の問題。</p>
 
-<p>(4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は <code>2^(n+1)-1</code> 回。指数が<code>n+1</code>になるのは、null checkを一番最下層のノードに対して行うから。未確認。</p>
+<p>(4) 深さｎの完全二分木に対して、足し合わせの計算量。呼び出す回数は $ 2^{n+1}-1 $ 回。指数が $n+1$ になるのは、null checkを一番最下層のノードに対して行うから。未確認。</p>
 
 <p>(5) ノードの左を子、右を兄弟とした新しいデータ構造に対して、足し合わせの関数を作成する。</p>
 
