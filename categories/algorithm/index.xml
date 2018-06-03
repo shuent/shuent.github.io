@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on Shuent</title>
+    <link>https://shuent.github.io/categories/algorithm/</link>
+    <description>Recent content in Algorithm on Shuent</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jun 2018 14:32:49 +0900</lastBuildDate>
+    
+	<atom:link href="https://shuent.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C</title>
+      <link>https://shuent.github.io/posts/implement-algo-data-by-c/</link>
+      <pubDate>Sun, 03 Jun 2018 14:32:49 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/implement-algo-data-by-c/</guid>
+      <description>C言語によるデータ構造とアルゴリズム、記事のまとめです。実装できるようになりましょう。基本的に自分の勉強用のメモなので、わかりやすく解説する</description>
+    </item>
+    
+  </channel>
+</rss>
