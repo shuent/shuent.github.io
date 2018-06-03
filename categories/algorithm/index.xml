@@ -6,10 +6,19 @@
     <description>Recent content in Algorithm on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Jun 2018 20:49:20 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 00:11:19 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>隣接行列と隣接リストの変換</title>
+      <link>https://shuent.github.io/posts/adjacent/</link>
+      <pubDate>Mon, 04 Jun 2018 00:11:19 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/adjacent/</guid>
+      <description>グラフで使われる、隣接行列から隣接リストへの変換関数を作る。 alist **listify2(int n,int mat[n][n], int boundary){ int i,j; alist* new; alist** ls; for(i=0;i&amp;lt;n;i++){ ls[i] = malloc(sizeof(alist)); ls[i]-&amp;gt;idx = -1; ls[i]-&amp;gt;next = ls[i]; } for(i = 0; i &amp;lt; n; i++){ for(j = 0; j &amp;lt; n; j++){ if(mat[i][j] != boundary){</description>
+    </item>
     
     <item>
       <title>ダイクストラ法ー最短経路問題</title>
