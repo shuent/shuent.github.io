@@ -90,12 +90,9 @@
                     </header>
                     
                     <div class="post-description">
-                        <p>隣接行列と、始点が与えられたとき、残りの頂点への最短経路を求める。</p>
+                        <p>隣接行列と、始点が与えられたとき、残りの頂点への最短経路を求める。C言語で実装。計算量は $O(V^2)$</p>
 
 <p>イメージはこちらのサイトを参考にした。<a href="http://nw.tsuda.ac.jp/lec/dijkstra/">http://nw.tsuda.ac.jp/lec/dijkstra/</a></p>
-
-<p>以下のCプログラムの計算量は $O(V^2)$ だが、最小ノードを求める箇所を線形探索ではなく、優先度付きキューを使えば、
-$O((E+V) \log V)$になる。 頂点をV, 辺をEとした。</p>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 /*
@@ -166,6 +163,8 @@ shortest path from 0
 6: 7
 7: 9
 </code></pre>
+
+<p>隣接リストで辺が与えられている場合、つながっている頂点を求める計算量がそのままEになる。優先度付きキューを使えば最小値を取り出す操作は log V になる。合わせると、$O((E+V)\log V)となり、高速化できる。</p>
 
                     </div>
                     
