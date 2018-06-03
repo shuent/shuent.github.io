@@ -6,10 +6,19 @@
     <description>Recent content on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Jun 2018 14:32:49 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jun 2018 20:49:20 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ダイクストラ法ー最短経路問題</title>
+      <link>https://shuent.github.io/posts/dijkstra/</link>
+      <pubDate>Sun, 03 Jun 2018 20:49:20 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/dijkstra/</guid>
+      <description>隣接行列と、始点が与えられたとき、残りの頂点への最短経路を求める。 イメージはこちらのサイトを参考にした。http://nw.tsuda.ac</description>
+    </item>
     
     <item>
       <title>C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C</title>

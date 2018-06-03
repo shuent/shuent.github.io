@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent</title>
+    <title>ダイクストラ法ー最短経路問題 &middot; Shuent</title>
 
     <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent">
+    <meta name="twitter:title" content="ダイクストラ法ー最短経路問題 &middot; Shuent">
     <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent">
+    <meta property="og:title" content="ダイクストラ法ー最短経路問題 &middot; Shuent">
     <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -73,11 +73,11 @@
         <div>
             
             <div class="posts">
-                <h1 class="content-subhead">03 Jun 2018, 14:32</h1>
+                <h1 class="content-subhead">03 Jun 2018, 20:49</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/posts/implement-algo-data-by-c/" class="post-title">C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C</a>
+                        <a href="https://shuent.github.io/posts/dijkstra/" class="post-title">ダイクストラ法ー最短経路問題</a>
 
                         <p class="post-meta">
                             
@@ -90,54 +90,82 @@
                     </header>
                     
                     <div class="post-description">
-                        
+                        <p>隣接行列と、始点が与えられたとき、残りの頂点への最短経路を求める。</p>
 
-<p>C言語によるデータ構造とアルゴリズム、記事のまとめです。実装できるようになりましょう。基本的に自分の勉強用のメモなので、わかりやすく解説するものではないかもしれません。</p>
+<p>イメージはこちらのサイトを参考にした。<a href="http://nw.tsuda.ac.jp/lec/dijkstra/">http://nw.tsuda.ac.jp/lec/dijkstra/</a></p>
 
-<h2 id="目次">目次</h2>
+<p>以下のCプログラムの計算量は $O(V^2)$ だが、最小ノードを求める箇所を線形探索ではなく、優先度付きキューを使えば、
+$O((E+V) \log V)$になる。 頂点をV, 辺をEとした。</p>
 
-<ul>
-<li>データ構造
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+/*
+Dijkstra
+Given adjecent matrix,
+Calculate the shortest path from start point to each point.
+*/
+#define N 8
+#define M &lt;&lt; 30
+int edge[N][N]= {{0,1,7,2,M,M,M,M},
+                {1,0,M,M,2,4,M,M},
+                {7,M,0,M,M,2,3,M},
+                {2,M,M,0,M,M,5,M},
+                {M,2,M,M,0,1,M,M},
+                {M,4,2,M,1,0,M,6},
+                {M,M,3,5,M,M,0,2},
+                {M,M,M,M,M,6,2,0}};
 
-<ul>
-<li>リスト 一方向、双方向</li>
-<li>スタック</li>
-<li>キュー(待ち行列)</li>
-<li>ヒープ（優先度付きキュー）</li>
-<li>二部探索木</li>
-</ul></li>
-<li>ソート
+int min(int a,int b){
+    return a &lt; b ? a : b;
+}
+int main(void){
+    int start = 0;
+    int confirmed[N];
+    int cost[N];
+    int minc, ref;
+    int i,j;
+    for(i = 0; i &lt; N; i++){
+        confirmed[i]=0;
+        cost[i]=M; 
+    }
+    cost[start] = 0;
+    for(i=0;i&lt;N;i++){
+        // find min cost node from unconfirmed nodes
+        minc = M;
+        for(j=0;j&lt;N;j++){
+            if(!confirmed[j] &amp;&amp; cost[j] &lt; minc){
+                minc = cost[j];
+                ref = j;
+            }
+        }
+        if(minc==M) {
+            printf(&quot;graph not connected&quot;); exit(1);
+        }
+        for(j=0;j&lt;N;j++){
+            if (edge[ref][j] &lt; M){ //if connected nodes
+                cost[j] = min(cost[j], cost[ref] + edge[ref][j]); // update if less cost via ref               
+            }
+        }
+        confirmed[ref] = 1;
+    }
+    printf(&quot;shortest path from %d\n&quot;,start);
+    for(i=0;i&lt;N;i++){
+        printf(&quot;%d: %d\n&quot;,i, cost[i]);
+    }
+}
+</code></pre>
 
-<ul>
-<li>バブルソート、選択ソート、挿入ソート</li>
-<li>シェルソート</li>
-<li>クイックソート</li>
-<li>マージソート</li>
-<li>バケット(ビン)ソート</li>
-</ul></li>
-<li>グラフ
-
-<ul>
-<li>隣接行列と隣接リスト</li>
-<li>深さ優先探索 DFS</li>
-<li>幅優先探索 BFS</li>
-<li><a href="https://shuent.github.io/posts/dijkstra">ダイクストラ Dijkstra</a></li>
-<li>ベルマンフォード Bellman Ford</li>
-<li>最小全域木</li>
-</ul></li>
-<li>整数
-
-<ul>
-<li>エラトステネスの篩</li>
-<li>最大公約数</li>
-</ul></li>
-<li>動的計画法　DP
-
-<ul>
-<li>ナップザック問題</li>
-<li>最長共通部分列 LCS</li>
-</ul></li>
-</ul>
+<pre><code># result
+$ ./a.out
+shortest path from 0
+0: 0
+1: 1
+2: 6
+3: 2
+4: 3
+5: 4
+6: 7
+7: 9
+</code></pre>
 
                     </div>
                     
