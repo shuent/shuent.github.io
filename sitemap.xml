@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://shuent.github.io/posts/meiro/</loc>
+    <lastmod>2018-06-04T16:48:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shuent.github.io/posts/adjacent/</loc>
     <lastmod>2018-06-04T00:11:19+09:00</lastmod>
   </url>
@@ -49,13 +54,13 @@
   
   <url>
     <loc>https://shuent.github.io/categories/algorithm/</loc>
-    <lastmod>2018-06-04T00:11:19+09:00</lastmod>
+    <lastmod>2018-06-04T16:48:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shuent.github.io/categories/</loc>
-    <lastmod>2018-06-04T00:11:19+09:00</lastmod>
+    <lastmod>2018-06-04T16:48:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -67,13 +72,13 @@
   
   <url>
     <loc>https://shuent.github.io/posts/</loc>
-    <lastmod>2018-06-04T00:11:19+09:00</lastmod>
+    <lastmod>2018-06-04T16:48:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shuent.github.io/</loc>
-    <lastmod>2018-06-04T00:11:19+09:00</lastmod>
+    <lastmod>2018-06-04T16:48:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   

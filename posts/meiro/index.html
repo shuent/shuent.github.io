@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent</title>
+    <title>バックトラック法(深さ優先探索)で迷路を解く。 &middot; Shuent</title>
 
     <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent">
+    <meta name="twitter:title" content="バックトラック法(深さ優先探索)で迷路を解く。 &middot; Shuent">
     <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C &middot; Shuent">
+    <meta property="og:title" content="バックトラック法(深さ優先探索)で迷路を解く。 &middot; Shuent">
     <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -73,11 +73,11 @@
         <div>
             
             <div class="posts">
-                <h1 class="content-subhead">03 Jun 2018, 14:32</h1>
+                <h1 class="content-subhead">04 Jun 2018, 16:48</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/posts/implement-algo-data-by-c/" class="post-title">C言語によるデータ構造とアルゴリズムの実装 | Data Structure and Algorithm By C</a>
+                        <a href="https://shuent.github.io/posts/meiro/" class="post-title">バックトラック法(深さ優先探索)で迷路を解く。</a>
 
                         <p class="post-meta">
                             
@@ -92,52 +92,107 @@
                     <div class="post-description">
                         
 
-<p>C言語によるデータ構造とアルゴリズム、記事のまとめです。実装できるようになりましょう。基本的に自分の勉強用のメモなので、わかりやすく解説するものではないかもしれません。</p>
+<h2 id="問題">問題</h2>
 
-<h2 id="目次">目次</h2>
+<p>3*3のマス目で、1が壁、0が道で表現されている。(0,0)から(2,2)にたどりつくことができるか探索せよ。</p>
 
-<ul>
-<li>データ構造
+<h2 id="解法">解法</h2>
 
-<ul>
-<li>リスト 一方向、双方向</li>
-<li>スタック</li>
-<li>キュー(待ち行列)</li>
-<li>ヒープ（優先度付きキュー）</li>
-<li>二部探索木</li>
-</ul></li>
-<li>ソート
+<p>バックトラック法で解く。可能性がある道を深堀していき、行き止まりなら分岐点へ戻って進む。この探索の方法を別名で深さ優先探索という。再帰で実装できる。</p>
 
-<ul>
-<li>バブルソート、選択ソート、挿入ソート</li>
-<li>シェルソート</li>
-<li>クイックソート</li>
-<li>マージソート</li>
-<li>バケット(ビン)ソート</li>
-</ul></li>
-<li>グラフ
+<p>この問題ではないけど、隣接行列が与えられたときは、もっと簡単に実装できる。</p>
 
-<ul>
-<li><a href="https://shuent.github.io/posts/adjacent">隣接行列と隣接リスト</a></li>
-<li>深さ優先探索 DFS</li>
-<li>幅優先探索 BFS</li>
-<li><a href="https://shuent.github.io/posts/dijkstra">ダイクストラ Dijkstra</a></li>
-<li>ベルマンフォード Bellman Ford</li>
-<li>最小全域木</li>
-</ul></li>
-<li>整数
+<p>木構造で迷路は表現できる。スタートをルートとして、次に進めるマスを子として木に追加していくと想像する。帰りがけ順に走査するとどこかでゴールにたどり着く。たどり着かなければ道がなかったことになる。</p>
 
-<ul>
-<li>エラトステネスの篩</li>
-<li>最大公約数</li>
-</ul></li>
-<li>動的計画法　DP
+<p>２次元配列ではなく、１次元配列で迷路を取得した。本当は４方向に動けるべきだけど、２方向に限定した。いろいろと端折ってますすみません。</p>
 
-<ul>
-<li>ナップザック問題</li>
-<li>最長共通部分列 LCS</li>
-</ul></li>
-</ul>
+
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define N 3*3
+#define LEN 3
+
+int meiro[N] = { 0,0,0,
+                 0,1,0,
+                 0,1,0 };
+// int visited[N];
+const int goal = 8;
+int success = 0;
+
+int visit(int i){
+    printf(&#34;%d &#34;,i);
+
+    // if no way return -1
+    if( (i&#43;1)%LEN !=0 &amp;&amp; !meiro[i&#43;1]) // ひとつ右に行ったとき、(右が端でない &amp;&amp; 訪問済みでない &amp;&amp; 行き止まりでない)とき
+        visit(i&#43;1);
+    if( i&#43;LEN &lt; N &amp;&amp; !meiro[i&#43;LEN]) // ひとつ下に行ったとき、(下が範囲を超えていない &amp;&amp; 訪問済みでない &amp;&amp; 行き止まりでない)とき
+        visit(i&#43;LEN);
+    printf(&#34;\n&#34;);
+    if(i==goal){
+        success = 1;
+    }
+    return success;
+}
+
+int main(){
+    int r = visit(0);
+    printf(&#34;\nsuccess: %d\n&#34;,r);
+}
+</code>
+</pre>
+
+<p>上のコードだと、全探索してしまうため、ゴールにたどり着いたら探索をやめたい。それを満たす改良版は以下。</p>
+
+
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define N 3*3
+#define LEN 3
+
+// ゴールに達したら終了する。
+
+int meiro[N] = { 0,0,0,
+                 0,1,0,
+                 0,1,0 };
+// int visited[N];
+const int goal = 8;
+
+int visit(int i){
+    printf(&#34;%d &#34;,i);
+    if(i==goal){
+        return 1;
+    }else{
+        if( (i&#43;1)%LEN !=0 &amp;&amp; !meiro[i&#43;1]) // ひとつ右に行ったとき、(右が端でない &amp;&amp; 行き止まりでない)とき
+            if (visit(i&#43;1) == 1) return 1;
+        if( i&#43;LEN &lt; N &amp;&amp; !meiro[i&#43;LEN]) // ひとつ下に行ったとき、(下が範囲を超えていない &amp;&amp; 行き止まりでない)とき
+            if (visit(i&#43;LEN) == 1) return 1;
+    }
+    return 0;
+}
+
+int main(){
+    int r = visit(0);
+    printf(&#34;\nsuccess: %d\n&#34;,r);
+}
+</code>
+</pre>
+
+<pre><code># result
+$ ./a.out
+0 1 2 5 8
+success: 1
+</code></pre>
+
+<p>ちなみに端に1を敷き詰めて番兵を作ってしまえば、端かどうかの判定がいらない。</p>
+
+<pre><code>11111
+10001
+10101
+10101
+11111
+</code></pre>
+
+<p>こんな感じで。</p>
 
                     </div>
                     

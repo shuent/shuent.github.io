@@ -6,10 +6,19 @@
     <description>Recent content on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:11:19 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 16:48:32 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>バックトラック法(深さ優先探索)で迷路を解く。</title>
+      <link>https://shuent.github.io/posts/meiro/</link>
+      <pubDate>Mon, 04 Jun 2018 16:48:32 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/meiro/</guid>
+      <description>問題 3*3のマス目で、1が壁、0が道で表現されている。(0,0)から(2,2)にたどりつくことができるか探索せよ。 解法 バックトラック法で解く</description>
+    </item>
     
     <item>
       <title>隣接行列から隣接リストの変換</title>
