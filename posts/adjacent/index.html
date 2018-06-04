@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隣接行列と隣接リストの変換 &middot; Shuent</title>
+    <title>隣接行列から隣接リストの変換 &middot; Shuent</title>
 
     <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="隣接行列と隣接リストの変換 &middot; Shuent">
+    <meta name="twitter:title" content="隣接行列から隣接リストの変換 &middot; Shuent">
     <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="隣接行列と隣接リストの変換 &middot; Shuent">
+    <meta property="og:title" content="隣接行列から隣接リストの変換 &middot; Shuent">
     <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -77,7 +77,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/posts/adjacent/" class="post-title">隣接行列と隣接リストの変換</a>
+                        <a href="https://shuent.github.io/posts/adjacent/" class="post-title">隣接行列から隣接リストの変換</a>
 
                         <p class="post-meta">
                             
@@ -90,9 +90,13 @@
                     </header>
                     
                     <div class="post-description">
-                        <p>グラフで使われる、隣接行列から隣接リストへの変換関数を作った。有向グラフ、無向グラフ関係なく使える。グラフ G=(E,V)において、隣接行列は、O(V^2) の空間を必要とするが、隣接リストは O(E+V). 辺がそこまで多くないようなグラフで有効。なお実際この変換関数は O(V^2) なので、入力が与えられているときは直接リストを作るべきだから、使うべき場面はない。何かのためではなく、変換することが目的な時に使える（笑）。ポインターを使ういい練習になった。</p>
+                        <p>グラフで使われる、隣接行列から隣接リストへの変換関数を作った。有向グラフ、無向グラフ関係なく使える。グラフ G=(E,V)において、隣接行列は、O(V^2) の空間を必要とするが、隣接リストは O(E+V). 辺がそこまで多くないようなグラフで有効。</p>
 
-<p><code>listify()</code>はある配列に対して参照渡しをする。<code>listify2()</code>は新しく配列をヒープに動的確保して返す。このほうがオブジェクト指向っぽい。計算量は O(V^2) だけど、作業している分は辺の数 E だけ。<code>get_edge()</code>は両方のインデックスから辺を見つける。隣接行列だとO(1)でとれるが、これは連結リストなので、一つのノードにつながれている辺が多いほど時間がかかる. 平均で O(E/V).</p>
+<p>なお実際この変換関数は O(V^2) なので、入力が与えられているときは直接リストを作るべきだから、使うべき場面はない。何かのためではなく、変換することが目的な時に使える（笑）。ポインターを使ういい練習になった。</p>
+
+<p><code>listify()</code>はある配列に対して参照渡しをする。<code>listify2()</code>は新しく配列をヒープに動的確保して返す。このほうがオブジェクト指向っぽい。計算量は O(V^2) だけど、作業している分は辺の数 E だけ。</p>
+
+<p><code>get_edge()</code>は両方のインデックスから辺を見つける。隣接行列だとO(1)でとれるが、これは連結リストなので、一つのノードにつながれている辺が多いほど時間がかかる. 平均で O(E/V).</p>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
