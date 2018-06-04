@@ -96,9 +96,9 @@
 
 <p>主な違いは、直列に進むか並列に進むか、次の探索候補点をスタックに入れるか待ち行列(キュー)に入れるか。</p>
 
-<p>順番を木であらわす。番号は呼ばれる順番</p>
+<p>それぞれ木であらわすと、こんな感じ。番号は呼ばれる順番。</p>
 
-<pre><code># 深さ優先探索 (通り掛け順) 
+<pre><code># 深さ優先探索 (行きがけ順) 
      1
    2   5
  3  4 6  7
@@ -113,7 +113,107 @@
 
 <h2 id="実装">実装</h2>
 
-<p>次のプログラムでは、両方とも隣接行列が与えられたとき、すべてのデータを探索し、その順番を表示する。</p>
+<p>次のプログラムでは、両方とも隣接行列が与えられたとき、すべてのデータを探索し、その順番を表示する。DFSは再帰版とスタック版がある。</p>
+
+<p>DFSスタック版とBFSは、スタックを使うか、キューを使うかの違いなの、が実装を見るとよくわかる。</p>
+
+<p>スタックとキューは配列を使い実装。</p>
+
+
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#define N 8
+const int mat[N][N]= {
+                {0,1,0,0,0,0,0,0},
+                {1,0,1,1,0,0,0,0},
+                {0,1,0,0,0,0,1,0},
+                {0,1,0,0,1,0,0,0},
+                {0,0,0,1,0,1,0,0},
+                {0,0,0,0,1,0,1,1},
+                {0,0,1,0,0,1,0,1},
+                {0,0,0,0,0,1,1,0}};
+int visited[N];
+
+ // 深さ優先探索 Depth First Search 再帰ver
+int dfs_rec(int i){
+    if(visited[i]) return 0;
+    visited[i] = 1;
+    printf(&#34;%d &#34;,i);            
+
+    for(int j=0;j&lt;N;j&#43;&#43;){
+        if( visited[j]==0 &amp;&amp; mat[i][j]==1){
+            dfs_rec(j);
+        }
+    }
+}
+
+// 深さ優先探索 stack ver.
+int dfs(){
+    int stack[100];
+    int sp=0; // スタックポインタ
+    int i,j,k;
+
+    stack[sp&#43;&#43;]=0; // 0 ~ 7 どれでも
+    while(sp){
+        k = stack[--sp];
+        if(visited[k]) continue;
+        visited[k]=1;
+        printf(&#34;%d &#34;,k);
+
+        for(j=N-1;0&lt;=j;j--){ //逆からにすると番号順にスタックから取り出される。
+            if( !visited[j] &amp;&amp; mat[k][j])
+                stack[sp&#43;&#43;]=j;
+        }
+        // for(i=0;i&lt;sp;i&#43;&#43;) // スタックの状態を出力。
+        //     printf(&#34;%d &#34;,stack[i]);
+        // printf(&#34;\n&#34;);
+    }
+}
+
+// 幅優先探索 Breadth First Search
+int bfs(){
+    int queue[100];
+    int head=0,tail=0,k,j;
+
+    queue[tail&#43;&#43;] = 0;
+    while(head != tail){
+        k = queue[head&#43;&#43;];
+        if(visited[k]) continue;
+        visited[k] = 1;
+        printf(&#34;%d &#34;,k);
+
+        for(j=0;j&lt;N;j&#43;&#43;){
+            if(!visited[j] &amp;&amp; mat[k][j])
+                queue[tail&#43;&#43;] = j;
+        }
+    }
+}
+
+int main(void){
+
+    for(int i=0;i&lt;N;i&#43;&#43;)
+        visited[i]=0;
+    dfs_rec(0); printf(&#34;\n&#34;);
+
+    for(int i=0;i&lt;N;i&#43;&#43;)
+        visited[i]=0;
+    dfs(); printf(&#34;\n&#34;);
+
+    for(int i=0;i&lt;N;i&#43;&#43;)
+        visited[i]=0;
+    bfs(); printf(&#34;\n&#34;);
+    
+}
+
+/* result
+
+$ ./a.out
+0 1 2 6 5 4 3 7
+0 1 2 6 5 4 3 7
+0 1 2 3 6 4 5 7
+
+*/</code>
+</pre>
 
                     </div>
                     
