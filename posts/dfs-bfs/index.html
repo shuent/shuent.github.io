@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>筑波情シス院試CS 28年2月　過去問 &middot; Shuent</title>
+    <title>深さ優先探索DFSと幅優先探索BFS &middot; Shuent</title>
 
     <meta name="description" content="">
 
     <meta name="generator" content="Hugo 0.41" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="筑波情シス院試CS 28年2月　過去問 &middot; Shuent">
+    <meta name="twitter:title" content="深さ優先探索DFSと幅優先探索BFS &middot; Shuent">
     <meta name="twitter:description" content="">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="筑波情シス院試CS 28年2月　過去問 &middot; Shuent">
+    <meta property="og:title" content="深さ優先探索DFSと幅優先探索BFS &middot; Shuent">
     <meta property="og:description" content="">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -73,18 +73,18 @@
         <div>
             
             <div class="posts">
-                <h1 class="content-subhead">31 May 2018, 01:22</h1>
+                <h1 class="content-subhead">04 Jun 2018, 18:37</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="https://shuent.github.io/posts/tsukuba28-2/" class="post-title">筑波情シス院試CS 28年2月　過去問</a>
+                        <a href="https://shuent.github.io/posts/dfs-bfs/" class="post-title">深さ優先探索DFSと幅優先探索BFS</a>
 
                         <p class="post-meta">
                             
                             
                                 under 
                                 
-                                <a class="post-category post-category-code" href="https://shuent.github.io/categories/code">code</a>
+                                <a class="post-category post-category-algorithm" href="https://shuent.github.io/categories/algorithm">algorithm</a>
                             
                         </p>
                     </header>
@@ -92,35 +92,28 @@
                     <div class="post-description">
                         
 
-<p>またまた二分探索木の問題。情報の問題１。
-<a href="http://www.cs.tsukuba.ac.jp/admission/past-exam.html">http://www.cs.tsukuba.ac.jp/admission/past-exam.html</a></p>
+<p>グラフや木構造であらわされたデータを探索するときに、主に２つの手法がある。深さ優先探索と幅優先探索。</p>
 
-<h3 id="解答">解答</h3>
+<p>主な違いは、直列に進むか並列に進むか、次の探索候補点をスタックに入れるか待ち行列(キュー)に入れるか。</p>
 
-<ol>
-<li>d &mdash;- 進み続ける。無限ループ。</li>
-<li>node != EMPTY &mdash;- ここでのEMPTY.value は番兵。番兵を最後において、find_node の無限ループを止めている。</li>
-<li>a, 4. b &mdash;- 二部探索木の計算量は $ O(\log n) \sim O(n) $</li>
-</ol>
+<p>順番を木であらわす。番号は呼ばれる順番</p>
 
-<p>5 は穴埋めでコード完成。すでにvalueが存在するときはそのままリターン。ここで注意しなきゃいけないのが、関数の型も、引数のtree もポインタ型ではないということ。普段ポインタで慣れている人ほど引っ掛かりそう。</p>
+<pre><code># 深さ優先探索 (通り掛け順) 
+     1
+   2   5
+ 3  4 6  7
 
-<pre><code class="language-cpp">tree insert(tree t,int v){
-    if (t==&amp;empty){
-        tree node = malloc()
-        node-&gt;val = v
-        node-&gt;left = node-&gt;right = &amp;empty
-        return node
-    }
-    // ここからが答え
-    if(v &lt; t-&gt;value){
-        &amp;t-&gt;left = insert(&amp;t-&gt;left, v); // leftがemptyにたどり着くまで再帰。たどり着いた先で上のコードで新しく挿入される。
-    }else if (v &gt; t-&gt;value){
-        &amp;t-&gt;right = &amp;insert(&amp;t-&gt;right, v);    
-    }
-    return t // すでに存在するとき
-}
+# 幅優先探索
+      1
+    2   3
+  4  5 6  7
 </code></pre>
+
+<p>DFSは木を降りていくが、BFSは兄弟木をすべてたどってから子の階層を辿る。</p>
+
+<h2 id="実装">実装</h2>
+
+<p>次のプログラムでは、両方とも隣接行列が与えられたとき、すべてのデータを探索し、その順番を表示する。</p>
 
                     </div>
                     

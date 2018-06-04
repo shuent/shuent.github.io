@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 16:48:32 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 18:37:23 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>深さ優先探索DFSと幅優先探索BFS</title>
+      <link>https://shuent.github.io/posts/dfs-bfs/</link>
+      <pubDate>Mon, 04 Jun 2018 18:37:23 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/dfs-bfs/</guid>
+      <description>グラフや木構造であらわされたデータを探索するときに、主に２つの手法がある。深さ優先探索と幅優先探索。 主な違いは、直列に進むか並列に進むか、次</description>
+    </item>
     
     <item>
       <title>バックトラック法(深さ優先探索)で迷路を解く。</title>
