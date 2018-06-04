@@ -90,15 +90,25 @@
                     </header>
                     
                     <div class="post-description">
-                        <p>グラフで使われる、隣接行列から隣接リストへの変換関数を作る。</p>
+                        <p>グラフで使われる、隣接行列から隣接リストへの変換関数を作った。有向グラフ、無向グラフ関係なく使える。グラフ G=(E,V)において、隣接行列は、O(V^2) の空間を必要とするが、隣接リストは O(E+V). 辺がそこまで多くないようなグラフで有効。なお実際この変換関数は O(V^2) なので、入力が与えられているときは直接リストを作るべきだから、使うべき場面はない。何かのためではなく、変換することが目的な時に使える（笑）。ポインターを使ういい練習になった。</p>
 
-<pre><code class="language-c">alist **listify2(int n,int mat[n][n], int boundary){
+<p><code>listify()</code>はある配列に対して参照渡しをする。<code>listify2()</code>は新しく配列を動的確保して返す。このほうがオブジェクト指向っぽい。計算量は O(V^2) だけど、作業している分は辺の数 E だけ。<code>get_edge()</code>は両方のインデックスから辺を見つける。隣接行列だとO(1)でとれるが、これは連結リストなので、一つのノードにつながれている辺が多いほど時間がかかる. 平均で O(E/V).</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+typedef struct Edge {
+    int idx;
+    int cost;
+    struct Edge* next;
+} Edge;
+
+void listify(int n,int mat[n][n], Edge* ls[n], int boundary){
+    // initialize list. point next itself.
     int i,j;
-    alist* new;
-    alist** ls;
+    Edge* new;
     for(i=0;i&lt;n;i++){
-        ls[i] = malloc(sizeof(alist));
-        ls[i]-&gt;idx = -1;
+        ls[i] = malloc(sizeof(Edge));
+        ls[i]-&gt;idx = -1;        
         ls[i]-&gt;next = ls[i];
     }
 
@@ -106,24 +116,38 @@
         for(j = 0; j &lt; n; j++){
             if(mat[i][j] != boundary){
                 // insert cost and key
-                new = (alist *)malloc(sizeof(alist));
+                new = (Edge *)malloc(sizeof(Edge));
                 new-&gt;cost = mat[i][j];
                 new-&gt;idx = j;
-                // pointer replace
+                // pointer replace. Nodes are inversively orderd because new node connect to first node.
                 new-&gt;next = ls[i]-&gt;next;
                 ls[i]-&gt;next = new;
-                
             }
         }
     }
-    return ls;
+}
 
+Edge **listify2(int n,int mat[n][n], int boundary){
+    // Dynamic allocation version.
+    // allocate memory of pointers array to heap
+    // '*ls[n]' cause warning: return-local-addr, and seg fault.
+    Edge** ls=malloc(n * sizeof(Edge*));  
+    listify(n,mat,ls,boundary);
+    return ls;
+}
+
+Edge* get_edge(Edge** ls, int u,int v){
+    Edge *edge = ls[u]-&gt;next;
+    while(edge != ls[u]){
+        if(edge-&gt;idx == v) return edge;
+        edge = edge-&gt;next;
+    }
+    return NULL;
 }
 
 #define N 8
 #define M 10000
 int main(void){
-    
     int edge[N][N]= {{0,1,7,2,M,M,M,M},
                 {1,0,M,M,2,4,M,M},
                 {7,M,0,M,M,2,3,M},
@@ -133,28 +157,17 @@ int main(void){
                 {M,M,3,5,M,M,0,2},
                 {M,M,M,M,M,6,2,0}};
 
-    alist **lst2 = listify2(N,edge,M);
-    printf(&quot;%p\n&quot;,lst2);
-    printf(&quot;%p\n&quot;,lst2[0]);
-    printf(&quot;%p\n&quot;,lst2[1]);
+    Edge *ls[N];
+    listify(N,edge,ls,M); // 参照渡し
+    Edge **lst2 = listify2(N,edge,M); //配列を動的確保するver.
 
-    printf(&quot;%d\n&quot;,lst2[2]-&gt;next-&gt;idx);
+    Edge *e = get_edge(lst2,0,2);
+    printf(&quot;%d\n&quot;,e-&gt;cost); //=&gt; 7
+    e = get_edge(ls,0,2);
+    printf(&quot;%d\n&quot;,e-&gt;cost); //=&gt; 7
+    
 }
-
 </code></pre>
-
-<pre><code>#result
-
-$ ./a.out
-0x7ffffc8ef8a0
-0x7ffff5818010
-0x7ffff5818030
-6
-</code></pre>
-
-<p>疑問なのが、ポインター　lst2 == lst[2]　になると思ってたのに違うアドレスが表示されている。なぜ。</p>
-
-<p>それと、listify2()の、<code>alist **ls</code>はmallocしていないけどsegmentation faultにはならない。なぜ。</p>
 
                     </div>
                     

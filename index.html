@@ -91,7 +91,7 @@
                     </header>
 
                     <div class="post-description">
-                        グラフで使われる、隣接行列から隣接リストへの変換関数を作る。 alist **listify2(int n,int mat[n][n], int boundary){ int i,j; alist* new; alist** ls; for(i=0;i&lt;n;i++){ ls[i] = malloc(sizeof(alist)); ls[i]-&gt;idx = -1; ls[i]-&gt;next = ls[i]; } for(i = 0; i &lt; n; i++){ for(j = 0; j &lt; n; j++){ if(mat[i][j] != boundary){
+                        グラフで使われる、隣接行列から隣接リストへの変換関数を作った。有向グラフ、無向グラフ関係なく使える。グラフ G=(E,V)において、隣接行列は
                         
                         
                         <a href="https://shuent.github.io/posts/adjacent/">... more</a>

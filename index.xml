@@ -17,7 +17,7 @@
       <pubDate>Mon, 04 Jun 2018 00:11:19 +0900</pubDate>
       
       <guid>https://shuent.github.io/posts/adjacent/</guid>
-      <description>グラフで使われる、隣接行列から隣接リストへの変換関数を作る。 alist **listify2(int n,int mat[n][n], int boundary){ int i,j; alist* new; alist** ls; for(i=0;i&amp;lt;n;i++){ ls[i] = malloc(sizeof(alist)); ls[i]-&amp;gt;idx = -1; ls[i]-&amp;gt;next = ls[i]; } for(i = 0; i &amp;lt; n; i++){ for(j = 0; j &amp;lt; n; j++){ if(mat[i][j] != boundary){</description>
+      <description>グラフで使われる、隣接行列から隣接リストへの変換関数を作った。有向グラフ、無向グラフ関係なく使える。グラフ G=(E,V)において、隣接行列は</description>
     </item>
     
     <item>
