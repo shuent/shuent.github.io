@@ -84,7 +84,7 @@
                             
                                 under 
                                 
-                                
+                                <a class="post-category post-category-algorithm" href="https://shuent.github.io/categories/algorithm">algorithm</a>
                             
                         </p>
                     </header>
@@ -102,7 +102,125 @@
 
 <p>ダイクストラに似ている。疑似コードや計算量の解説はWikipediaがわかりやすい。<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AA%E3%83%A0%E6%B3%95">プリム法</a></p>
 
-<p>&ndash;prim.c&ndash;</p>
+
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// 隣接リストとで辺が表現されていると仮定。
+// size はつながっているノードの数
+typedef struct Node {
+    int idx; int cost;
+    struct Node *next;
+} Node;
+
+// 隣接リストにつなげる。
+Node *connect(Node **lst, int from, int to, int cost){
+
+    Node *x = (Node *)malloc(sizeof(Node));
+    x-&gt;cost = cost;
+    x-&gt;idx = to;
+    x-&gt;next = lst[from]-&gt;next;
+    lst[from]-&gt;next = x;
+}
+
+int main(){
+    int i,j,k,t,u,min;
+    int v_size = 5;
+    Node *adj[v_size]; // adjacent list
+    Node *newn,*p;
+    int parent[v_size]; //costは取得しない
+
+    // 適当に隣接リストを埋める。
+    // 無向グラフにするため、辺は対称にする。
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        adj[i] = (Node *)malloc(sizeof(Node));
+        adj[i]-&gt;idx = -1;
+        adj[i]-&gt;next = adj[i];
+    }
+    connect(adj,0,1,5);
+    connect(adj,1,0,5);
+    connect(adj,0,2,34);
+    connect(adj,2,0,34);
+    connect(adj,2,4,8);
+    connect(adj,4,2,8);
+    connect(adj,4,3,20);
+    connect(adj,3,4,20);
+    connect(adj,0,4,14);
+    connect(adj,4,0,14);
+    connect(adj,1,3,26);
+    connect(adj,3,1,26);
+
+
+    // 確認
+    
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        p = adj[i]-&gt;next;
+        while(p!=adj[i]){
+            printf(&#34;%d:%d &#34;,p-&gt;idx,p-&gt;cost);
+            p = p-&gt;next;
+        }
+        putchar(&#39;\n&#39;);
+    }
+
+    // 本体
+    
+    int ref;
+    int visited[v_size];
+    int cost[v_size];
+    const int INF = 1&lt;&lt;20;
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        cost[i]=INF;
+        visited[i]=0;
+    }
+    cost[0]=0;
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        min = INF;
+        for(j=0;j&lt;v_size;j&#43;&#43;){
+            if(!visited[j] &amp;&amp; min &gt; cost[j]){
+                ref = j;
+                min = cost[j];
+            }
+        }
+
+        if(min == INF) exit(0); //連結でないので終了
+        visited[ref] = 1;
+        
+        p = adj[ref]-&gt;next;
+        while(p!=adj[ref]){
+            if(!visited[p-&gt;idx] &amp;&amp; cost[ref] &#43; p-&gt;cost &lt; cost[p-&gt;idx] ){
+                cost[p-&gt;idx] = cost[ref] &#43; p-&gt;cost;
+                parent[p-&gt;idx] = ref;
+            }
+            p = p-&gt;next;
+        }
+    }
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        printf(&#34;%d-&gt;%d &#34;,i,parent[i]);
+    }
+    putchar(&#39;\n&#39;);
+    for(i=0;i&lt;v_size;i&#43;&#43;){
+        printf(&#34;%d &#34;,cost[i]);
+    }
+    putchar(&#39;\n&#39;);
+}
+
+/* result
+
+4:14 2:34 1:5
+3:26 0:5
+4:8 0:34
+1:26 4:20
+0:14 3:20 2:8
+0-&gt;-754327952 1-&gt;0 2-&gt;4 3-&gt;1 4-&gt;0
+0 5 22 31 14
+
+*/</code>
+</pre>
+
+<p>ここで俺は重大発見に気づいてしまったかも知れなかった。隣接リストをそれぞれコスト順に並べれば、O(1)で最小の繋がっているノードを取得できることになる。</p>
+
+<p>２分後考え直していやどうせここでもアルゴリズム内でも線形探索するには変らないことに気づいた。。まあいいや</p>
 
 <h2 id="クラスカル法">クラスカル法</h2>
 
@@ -112,7 +230,7 @@
 
 <p>アルゴリズムの中で、同じ集合に点が属するか判定する必要があるため、素集合データ構造を使う。その操作にUnion-findアルゴリズムを使う。</p>
 
-
+<p>
 
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -167,7 +285,7 @@ int test(){
         printf(&#34;is same %d\n&#34;, is_same(nodes[i],nodes[i&#43;1]));     
 
 }</code>
-</pre>
+</pre></p>
 
 <h3 id="クラスカル">クラスカル</h3>
 

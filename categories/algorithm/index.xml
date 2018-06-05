@@ -6,10 +6,19 @@
     <description>Recent content in Algorithm on Shuent</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 18:37:23 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jun 2018 13:31:25 +0900</lastBuildDate>
     
 	<atom:link href="https://shuent.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最小全域木 プリム法とクラスカル法</title>
+      <link>https://shuent.github.io/posts/prim-kruskal/</link>
+      <pubDate>Tue, 05 Jun 2018 13:31:25 +0900</pubDate>
+      
+      <guid>https://shuent.github.io/posts/prim-kruskal/</guid>
+      <description>最小全域木を求める二つのアルゴリズム、プリム法とクラスカル法をC言語で実装するよ。クラスカル法は、Union-findを使う。 最小全域木とは</description>
+    </item>
     
     <item>
       <title>深さ優先探索DFSと幅優先探索BFS</title>
