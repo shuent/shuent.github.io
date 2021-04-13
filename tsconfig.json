@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./",
-    "noImplicitReturns": true,
+    "noImplicitReturns": true
   },
   "exclude": ["node_modules", ".next", "out"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
