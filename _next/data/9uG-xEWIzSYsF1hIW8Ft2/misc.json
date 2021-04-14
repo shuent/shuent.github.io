@@ -1,0 +1,1 @@
+{"pageProps":{"posts":[{"slug":"start-blog","content":"\nはじめた理由:\n\n1. Next.js でブログを作りたかった。\n2. 自分の庭で書き物をしたい。\n","data":{"title":"ブログをはじめてみた","date":"2021-4-15"}},{"slug":"test-wrting-code","content":"\nこの通りコードも書ける\n\n```js\nconst hello = () => 'Hello World!'\n```\n","data":{"title":"コードを書いてみる","date":"2021-4-15"}}]},"__N_SSG":true}
