@@ -3,14 +3,13 @@ import Link from 'next/link'
 
 const siteName = 'Shuent Dev'
 
-export const Home = (): JSX.Element => (
+const Home = () => (
   <>
     <Head>
-      <title>Create Next App</title>
+      <title>{siteName}</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <h1>{siteName}</h1>
-    <h2>Links</h2>
     <ul>
       <li>
         <Link href="/works">works</Link> - somthing like portfolio
@@ -23,8 +22,8 @@ export const Home = (): JSX.Element => (
       </li>
     </ul>
     <div>
-      <h2>Author</h2>
-      <p>フロントエンドがメインのエンジニア</p>
+      <h3>Author</h3>
+      <p>Freelance Frontend Engineer. DM me in Twitter for Contact</p>
       <a
         href="https://twitter.com/shunta10m"
         target="_blank"
@@ -33,12 +32,6 @@ export const Home = (): JSX.Element => (
         @shunta10m
       </a>
     </div>
-    <style jsx global>{`
-      html,
-      body {
-        font-family: Lucida Console, Courier, monospace;
-      }
-    `}</style>
   </>
 )
 

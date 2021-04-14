@@ -1,3 +1,3 @@
-export const Home = (): JSX.Element => <>aai</>
+export const Misc = (): JSX.Element => <>under construction</>
 
-export default Home
+export default Misc
