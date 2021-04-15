@@ -9,7 +9,7 @@ const Post = ({ mdContent, ...data }) => {
     <div>
       <h1>{data.title}</h1>
       <FlexRow>
-        <p style={{ marginRight: '8px' }}>{data.date}</p>
+        <p style={{ margin: '0', marginRight: '8px' }}>{data.date}</p>
         <TagList tags={data.tags} />
       </FlexRow>
       <MdContent mdText={mdContent} />

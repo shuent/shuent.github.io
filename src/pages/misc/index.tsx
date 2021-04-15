@@ -14,10 +14,13 @@ const MiscList = ({ posts }) => {
           <li key={post.slug}>
             <h2>{post.data.title}</h2>
             <FlexRow>
-              <p style={{ marginRight: '8px' }}>{post.data.date}</p>
+              <p style={{ margin: '0', marginRight: '8px' }}>
+                {post.data.date}
+              </p>
               <TagList tags={post.data.tags} />
             </FlexRow>
             <MdContent mdText={post.content} />
+            <hr />
           </li>
         ))}
       </ul>

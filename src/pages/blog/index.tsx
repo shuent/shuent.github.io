@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import { getAllContentFromMd } from 'src/lib/mdHelper'
 import { TagList } from 'src/components/TagList'
-import { FlexRow } from 'src/components/Flex'
 const BlogList = ({ posts }) => {
   return (
     <>
@@ -10,12 +9,12 @@ const BlogList = ({ posts }) => {
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <FlexRow>
-              <Link href={`/blog/${post.slug}`}>
-                <a style={{ marginRight: '8px' }}>{post.data.title}</a>
-              </Link>
-              <TagList tags={post.data.tags} />
-            </FlexRow>
+            <Link href={`/blog/${post.slug}`}>
+              <a style={{ marginRight: '8px', marginBottom: '4px' }}>
+                {post.data.title}
+              </a>
+            </Link>
+            <TagList tags={post.data.tags} />
           </li>
         ))}
       </ul>

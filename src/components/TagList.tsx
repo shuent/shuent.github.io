@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 const StyledUl = styled.ul`
+  display: inline-block;
   list-style: none;
+  margin: 0;
+  padding: 0;
 `
 
 export const TagItem = styled.li`
