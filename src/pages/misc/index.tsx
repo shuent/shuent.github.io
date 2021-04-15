@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import { getAllContentFromMd } from 'src/lib/mdHelper'
-import { MdTransformer } from 'src/lib/MdTransformer'
+import { MdContent } from 'src/lib/MdContent'
 
 const MiscList = ({ posts }) => {
   return (
@@ -12,7 +12,7 @@ const MiscList = ({ posts }) => {
           <li key={post.slug}>
             <h2>{post.data.title}</h2>
             <p>{post.data.date}</p>
-            <MdTransformer mdText={post.content} />
+            <MdContent mdText={post.content} />
           </li>
         ))}
       </ul>

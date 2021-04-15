@@ -1,15 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
-const siteName = 'Shuent Dev'
+import { siteConfig } from 'src/constants'
 
 const Home = () => (
   <>
     <Head>
-      <title>{siteName}</title>
+      <title>{siteConfig.title}</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <h1>{siteName}</h1>
+    <h1>{siteConfig.title}</h1>
     <ul>
       <li>
         <Link href="/works">works</Link> - somthing like portfolio

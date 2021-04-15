@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { generatePaths, getMatterParsedContentFromMd } from 'src/lib/mdHelper'
 import { ParsedUrlQuery } from 'node:querystring'
-import { MdTransformer } from 'src/lib/MdTransformer'
+import { MdContent } from 'src/lib/MdContent'
 
 const Post = ({ mdContent, ...data }) => {
   return (
     <div>
       <h1>{data.title}</h1>
       <p>{data.date}</p>
-      <MdTransformer mdText={mdContent} />
+      <MdContent mdText={mdContent} />
     </div>
   )
 }

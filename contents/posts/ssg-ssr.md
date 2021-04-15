@@ -16,6 +16,9 @@ You can use Static Generation for many types of pages, including:
 
 ```js
 alert('hello')
+const hello = () => {
+  return 'world'
+}
 ```
 
 ---
