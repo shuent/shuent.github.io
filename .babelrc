@@ -2,12 +2,10 @@
   "presets": ["next/babel"],
   "plugins": [
     [
-      "prismjs",
+      "babel-plugin-styled-components",
       {
-        "languages": ["javascript", "css", "markup"],
-        "plugins": ["line-numbers", "show-language"],
-        "theme": "twilight",
-        "css": true
+        "ssr": true,
+        "displayName": true
       }
     ]
   ]
