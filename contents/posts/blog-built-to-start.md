@@ -1,6 +1,7 @@
 ---
 title: 'Next.jsとMarkdownでブログを作ろう'
 date: '2021-4-15'
+tags: ['blog', 'react']
 ---
 
 前のブログを綺麗に削除して、next.js でブログを書き始めることにした。

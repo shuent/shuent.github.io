@@ -1,6 +1,7 @@
 ---
 title: '📙React + TypeScript + Firebaseで認証付きの簡単な掲示板を作ろう'
 date: '2021-4-10'
+tags: ['react', 'firebase']
 ---
 
 

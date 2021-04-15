@@ -28,6 +28,7 @@ export const getMatterParsedContentFromMd = (
     data: {
       title: matterResult.data.title,
       date: new Date(matterResult.data.date).toDateString(),
+      tags: matterResult.data.tags || [],
     },
   }
 }

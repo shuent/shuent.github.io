@@ -1,6 +1,7 @@
 ---
 title: 'ブログでやってみたいこと'
 date: '2021-4-15'
+tags: ['blog', 'poem']
 ---
 
 - create npm module: markdown file genelator cli
