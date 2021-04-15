@@ -25,7 +25,10 @@ export const getMatterParsedContentFromMd = (
 
   return {
     content: matterResult.content,
-    data: matterResult.data,
+    data: {
+      title: matterResult.data.title,
+      date: new Date(matterResult.data.date).toDateString(),
+    },
   }
 }
 
@@ -35,12 +38,17 @@ export const getAllContentFromMd = (
 ) => {
   const directory = path.join(process.cwd(), dirPath)
 
-  const fileNames = fs
-    .readdirSync(directory)
-    .map((fileName) => fileName.replace(/\.md$/, ''))
+  const contents = fs.readdirSync(directory).map((fileName) => {
+    const chopped = fileName.replace(/\.md$/, '')
+    return {
+      [fileNameAs]: chopped,
+      ...getMatterParsedContentFromMd(dirPath, chopped),
+    }
+  })
 
-  return fileNames.map((fileName) => ({
-    [fileNameAs]: fileName,
-    ...getMatterParsedContentFromMd(dirPath, fileName),
-  }))
+  contents.sort((a, b) =>
+    new Date(a.data.date) <= new Date(b.data.date) ? 1 : -1
+  )
+
+  return contents
 }
