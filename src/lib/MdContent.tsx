@@ -2,6 +2,8 @@ import React from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
+import breakLine from 'remark-breaks'
 const Highlighter = ({ language, value }) => (
   <SyntaxHighlighter
     language={language}
@@ -14,5 +16,11 @@ const Highlighter = ({ language, value }) => (
 )
 
 export const MdContent = ({ mdText }) => {
-  return <ReactMarkdown source={mdText} renderers={{ code: Highlighter }} />
+  return (
+    <ReactMarkdown
+      plugins={[gfm, breakLine]}
+      source={mdText}
+      renderers={{ code: Highlighter }}
+    />
+  )
 }

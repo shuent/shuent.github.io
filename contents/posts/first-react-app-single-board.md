@@ -102,6 +102,7 @@ Code: https://github.com/shuent/single-board
 ```sh
 npx create-react-app single-board --template typescript
 ```
+
 CRAでは必要なライブラリが全部入っているので、設定なしにコードを書き始められます。eslintも入っています。
 
 ただ、コードフォーマットツールのprettierはありません。自動でコードを綺麗に整形したい人はインストールしましょう。vscodeを使っている人は、prettierの拡張機能をインストールすればnpm installする必要がありません。`.prettierrc`で自分の設定でコードフォーマットしてくれます。
