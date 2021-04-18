@@ -4,9 +4,14 @@ import { ParsedUrlQuery } from 'node:querystring'
 import { MdContent } from 'src/lib/MdContent'
 import { TagList } from 'src/components/TagList'
 import { FlexRow } from 'src/components/Flex'
+import Head from 'next/head'
 const Post = ({ mdContent, ...data }) => {
   return (
     <div>
+      <Head>
+        <title>{data.title}</title>
+        <meta property="og:title" content={data.title} key="title"></meta>
+      </Head>
       <h1>{data.title}</h1>
       <FlexRow>
         <p style={{ margin: '0', marginRight: '8px' }}>{data.date}</p>
