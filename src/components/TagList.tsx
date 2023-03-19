@@ -1,26 +1,12 @@
-import styled from 'styled-components'
-
-const StyledUl = styled.ul`
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`
-
-export const TagItem = styled.li`
-  display: inline-block;
-  background-color: steelblue;
-  color: white;
-  margin-right: 4px;
-  padding: 0 2px;
-  border-radius: 2px;
-  font-size: 14px;
-`
-
 export const TagList = ({ tags }) => (
-  <StyledUl>
+  <ul className="inline-block m-0 p-0">
     {tags.map((tag) => (
-      <TagItem key={tag}>#{tag}</TagItem>
+      <li
+        className="inline-block bg-indigo-700 text-white mr-1 rounded-sm text-sm"
+        key={tag}
+      >
+        #{tag}
+      </li>
     ))}
-  </StyledUl>
+  </ul>
 )

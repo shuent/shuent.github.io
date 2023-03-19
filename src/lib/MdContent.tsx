@@ -15,12 +15,10 @@ const Highlighter = ({ language, value }) => (
   </SyntaxHighlighter>
 )
 
-export const MdContent = ({ mdText }) => {
+export const MdContent = ({ children }) => {
   return (
-    <ReactMarkdown
-      plugins={[gfm, breakLine]}
-      source={mdText}
-      renderers={{ code: Highlighter }}
-    />
+    <ReactMarkdown plugins={[gfm, breakLine]} renderers={{ code: Highlighter }}>
+      {children}
+    </ReactMarkdown>
   )
 }

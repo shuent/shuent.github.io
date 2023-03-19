@@ -1,6 +1,3 @@
-import styled from 'styled-components'
-
-export const FlexRow = styled.div`
-  display: flex;
-  align-items: center;
-`
+export const FlexRow = ({ children }) => (
+  <div className="flex items-center">{children}</div>
+)

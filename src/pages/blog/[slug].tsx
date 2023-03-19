@@ -17,7 +17,9 @@ const Post = ({ mdContent, ...data }) => {
         <p style={{ margin: '0', marginRight: '8px' }}>{data.date}</p>
         <TagList tags={data.tags} />
       </FlexRow>
-      <MdContent mdText={mdContent} />
+      <div className="prose max-w-none">
+        <MdContent>{mdContent}</MdContent>
+      </div>
     </div>
   )
 }
