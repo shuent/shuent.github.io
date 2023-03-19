@@ -16,9 +16,6 @@ const Home = () => (
       <li>
         <Link href="/blog">blog</Link> - tutorial, poem, thoughts.
       </li>
-      <li>
-        <Link href="/misc">misc</Link> - counts for nothing but scribble
-      </li>
     </ul>
     <div>
       <h3>Author</h3>

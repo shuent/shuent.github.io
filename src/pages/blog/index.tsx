@@ -9,10 +9,11 @@ const BlogList = ({ posts }) => {
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
-              <a style={{ marginRight: '8px', marginBottom: '4px' }}>
-                {post.data.title}
-              </a>
+            <Link
+              href={`/blog/${post.slug}`}
+              style={{ marginRight: '8px', marginBottom: '4px' }}
+            >
+              {post.data.title}
             </Link>
             <TagList tags={post.data.tags} />
           </li>
