@@ -3,7 +3,7 @@ import { generatePaths, getMatterParsedContentFromMd } from 'src/lib/mdHelper'
 import { ParsedUrlQuery } from 'node:querystring'
 import { MdContent } from 'src/lib/MdContent'
 import { TagList } from 'src/components/TagList'
-import { FlexRow } from 'src/components/Flex'
+
 import Head from 'next/head'
 const Post = ({ mdContent, ...data }) => {
   return (
@@ -13,10 +13,10 @@ const Post = ({ mdContent, ...data }) => {
         <meta property="og:title" content={data.title} key="title"></meta>
       </Head>
       <h1>{data.title}</h1>
-      <FlexRow>
+      <div className="flex items-center">
         <p style={{ margin: '0', marginRight: '8px' }}>{data.date}</p>
         <TagList tags={data.tags} />
-      </FlexRow>
+      </div>
       <div className="prose max-w-none">
         <MdContent>{mdContent}</MdContent>
       </div>

@@ -2,10 +2,11 @@ import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import { getAllContentFromMd } from 'src/lib/mdHelper'
 import { TagList } from 'src/components/TagList'
-const BlogList = ({ posts }) => {
+import { getAllPosts } from 'src/lib/qiita'
+const BlogList = ({ posts, qiitaPosts }) => {
   return (
     <>
-      <h1>blog</h1>
+      <h2 className="text-lg">blog</h2>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
@@ -19,6 +20,20 @@ const BlogList = ({ posts }) => {
           </li>
         ))}
       </ul>
+      <h2 className="text-lg">Qiita</h2>
+      <ul>
+        {qiitaPosts.map((post) => (
+          <li key={post.title}>
+            <Link
+              href={post.url}
+              style={{ marginRight: '8px', marginBottom: '4px' }}
+            >
+              {post.title}
+            </Link>
+            <TagList tags={post.tags} />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
@@ -26,9 +41,11 @@ const BlogList = ({ posts }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const dirPath = 'contents/posts'
   const posts = getAllContentFromMd(dirPath, 'slug')
+  const qiitaPosts = await getAllPosts()
   return {
     props: {
-      posts: posts,
+      posts,
+      qiitaPosts,
     },
   }
 }
