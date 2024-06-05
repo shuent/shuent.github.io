@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -11,11 +9,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello</h1>
-			<p>I'm Shunta Uehara, a software engineer.</p>
+			<h1>🧙🏻‍♂️ Hello</h1>
+			<p>I'm Shunta Uehara, a software engineer from Japan.</p>
+			<ul>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/resume">Resume (ja)</a></li>
+				<li><a href="https://github.com/shuent">GitHub</a></li>
+				<li><a href="https://qiita.com/shuent">Qiita</a></li>
+			</ul>
 		</main>
-		<Footer />
 	</body>
 </html>
