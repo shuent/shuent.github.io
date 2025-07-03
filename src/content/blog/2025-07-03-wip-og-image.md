@@ -5,7 +5,7 @@ tags:
   - typescript
   - node.js
   - cli
-pubDate: 2025-07-02
+pubDate: 2025-07-03
 ---
 
 zenn に詳しく.
