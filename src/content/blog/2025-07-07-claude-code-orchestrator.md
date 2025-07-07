@@ -15,7 +15,7 @@ task tool を使って，メインプロセスで無駄なコンテキストを�
 
 demo:
 
-![alt text](../../images/cc-demo-orchestrator.gif)
+![alt text](/images/cc-demo-orchestrator.gif)
 
 この方法で，フルスタックで動く Web アプリを作成することができたので方法をまとめる．
 
