@@ -171,3 +171,7 @@ You are the **Central Orchestrator** that controls the entire development workfl
 ### 次の工夫
 
 ライブラリを追加するときは，公式 Doc を見る，比較する，などをしてほしいため，リサーチエージェントとして役割分けて呼び出してあげると良さそう．
+
+実際のロールプロンプトは端折っているのですが，公開しないので 各自 GPT や gemini と相談して作ってみてください!
+
+人には人のオーケストレーターということで.
